@@ -1,0 +1,27 @@
+{
+  "name": "backendvetrollingfinal",
+  "version": "1.0.0",
+  "description": "Proyecto de veterinaria con react",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "babel-node": "babel-node --presets=env",
+    "dev": "nodemon --exec npm run babel-node ./src/index.js"
+  },
+  "keywords": [
+    "veterinaria",
+    "backend",
+    "rolling",
+    "react",
+    "bootstrap"
+  ],
+  "author": "Perez Ramiro Nahuel, Romero Abadie Pablo, Japaze Bautista, Mercado David, Campos Axel, Arriola Valentin",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  }
+}
