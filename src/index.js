@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import path from "path";
+import router from "./routes/servicios.routes";
 
 
 //creo una instancia de express
@@ -9,7 +10,7 @@ const app = express();
 
 
 //crear un puerto
-app.set("port", process.env.PORT || 4001);
+app.set("port", process.env.PORT || 4000);
 
 app.listen(app.get("port"),()=>{
     console.log("estoy en el puerto " + app.get("port"));
@@ -26,8 +27,5 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"../public")));
 
 
-// ruta de prueba
-app.get("/products", (req, res)=>{
-    // lo que quiero que pase cuando se ejecute esta consulta 
-    res.send("hola desde el backend")
-})
+// aqui van las rutas
+app.use("/", router)
