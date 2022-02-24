@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import path from "path";
 import router from "./routes/servicios.routes";
+import "./database"
 
 
 //creo una instancia de express
