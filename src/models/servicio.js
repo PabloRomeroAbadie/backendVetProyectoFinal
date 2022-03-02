@@ -3,7 +3,6 @@ import mongoose, {Schema} from "mongoose";
 
 const servicioSchema = new Schema({
     servicioImg:{
-        data:Buffer,
         Type:String
     },
     servicioTitle:{
