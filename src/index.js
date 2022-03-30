@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import path from "path";
+import router from "./routes/turnos.routes";
 
 
 //creo una instancia de express
@@ -26,8 +27,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"../public")));
 
 
-// ruta de prueba
-app.get("/products", (req, res)=>{
-    // lo que quiero que pase cuando se ejecute esta consulta 
-    res.send("hola desde el backend")
-})
+//aqui van las rutas 
+
+app.use("/apicafe", router)
+
+
