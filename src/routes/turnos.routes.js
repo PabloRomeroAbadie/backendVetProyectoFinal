@@ -11,4 +11,6 @@ const router = Router();  // puedo ponerle el nombre que quiera ( router x ejemp
 
 router.route("/turnos").get(turnosCtrl.listarTurnos).post(turnosCtrl.crearTurnos);
 
+
+router.route("/turnos/:id").get(turnosCtrl.obtenerTurnos);
 export default router; 
