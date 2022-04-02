@@ -35,11 +35,11 @@ turnosCtrl.crearTurnos = async (req, res) => {
     }
 }
 
-// agregamos la logica para obtener la lista de productos
+// agregamos la logica para obtener la lista de turnos
 turnosCtrl.listarTurnos = async (req, res) => {
     //toda la logica que quiero que suceda para obtener la lista
     try {
-        //crear un arreglo de productos y enviarlo
+        //crear un arreglo de turnos y enviarlo
         const listaTurno = await Turno.find();
         res.status(200).json(listaTurno)
     } catch (error) {
@@ -50,19 +50,17 @@ turnosCtrl.listarTurnos = async (req, res) => {
     }
 }
 
-
-
 turnosCtrl.obtenerTurnos = async (req, res) => {
     try {
-     
+
         //obtener el id del request 
         console.log(req.params.id)
 
 
-        //buscar el producto
+        //buscar el turno
         const turnoBuscado = await Turno.findById(req.params.id)
 
-        //enviar el producto por respuesta para el frontend
+        //enviar el turno por respuesta para el frontend
         res.status(200).json(turnoBuscado);
 
 
@@ -75,8 +73,33 @@ turnosCtrl.obtenerTurnos = async (req, res) => {
     }
 }
 
+turnosCtrl.editarTurnos = async (req, res) => {
+    try {
+        console.log(req.params.id)
+        console.log(req.body)
+        //agregar validaciones de campos
+        await Turno.findByIdAndUpdate(req.params.id,req.body);
+        res.status(200).json({ mensaje: "El turno fue editado correctamente" });
 
+    } catch (error) {
+        console.log(error)
+        res.status(404).json({
+            mensaje: "error al intentar editar un turno"
+        })
+    }
+}
 
+turnosCtrl.borrarTurnos = async (req, res) => {
+    try {
+        await Turno.findByIdAndDelete(req.params.id);
+        res.status(200).json({ mensaje: "se pudo eliminar el turno correctamente" })
 
+    } catch (error) {
+        console.log(error)
+        res.status(404).json({
+            mensaje: "error al intentar borrar un turno"
+        })
+    }
+}
 
 export default turnosCtrl;
