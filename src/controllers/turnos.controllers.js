@@ -92,7 +92,7 @@ turnosCtrl.editarTurnos = async (req, res) => {
 turnosCtrl.borrarTurnos = async (req, res) => {
     try {
         await Turno.findByIdAndDelete(req.params.id);
-        res.status(200).json({ mensaje: "se pudo eliminar el turno correctamente" })
+        res.status(200).json({ mensaje: "se elimino  el turno correctamente" })
 
     } catch (error) {
         console.log(error)
