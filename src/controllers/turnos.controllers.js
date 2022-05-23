@@ -12,9 +12,9 @@ turnosCtrl.crearTurnos = async (req, res) => {
 
         const turnoNuevo = new Turno({
             nombreDueño: req.body.nombreDueño,
-            apellidoDueño: req.body.apellidoDueño,
             nombreMascota: req.body.nombreMascota,
             raza: req.body.raza,
+            fecha: req.body.fecha,
             veterinario: req.body.veterinario,
             horario: req.body.horario
         })

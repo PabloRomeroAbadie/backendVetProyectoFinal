@@ -3,36 +3,34 @@
 import mongoose, { Schema } from "mongoose";
 
 
-const turnoSchema = new Schema({
+const usuarioSchema = new Schema({
+    email: {
+        type: String,
+        required: true
+    },
     nombreDueño: {
         type: String,
         required: true
     },
     nombreMascota: {
         type: String,
-         required: true
+        required: true
     },
-    raza: {
+    contraseña:{
         type: String,
         required: true
     },
-    fecha:{
+    fecha: {
         type: String,
         required: true
     },
-    veterinario: {
+    celular: {
         type: String,
         required: true
-    },
-    horario: {
-        type: String,
-        required: true,
-        unique: true 
-
     }
 });
 
 
-const Turno = mongoose.model("turno", turnoSchema);
+const Usuario = mongoose.model("usuario", usuarioSchema);
 
-export default Turno;
+export default Usuario;
