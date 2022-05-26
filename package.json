@@ -15,7 +15,7 @@
     "react",
     "bootstrap"
   ],
-  "author": "Perez Ramiro Nahuel, Romero Abadie Pablo, Japaze Bautista, Mercado David, Campos Axel, Arriola Valentin",
+  "author": "Perez Ramiro Nahuel, Romero Abadie Pablo",
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
