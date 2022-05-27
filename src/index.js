@@ -3,8 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import path from "path";
 import router from "./routes/turnos.routes";
-import router from "./routes/usuarios.routes";
-import "./database"
+import "./database";
 
 
 //creo una instancia de express
@@ -31,6 +30,6 @@ app.use(express.static(path.join(__dirname,"../public")));
 
 //aqui van las rutas 
 
-app.use("/apivet", router)
+app.use("/apivet", router )
 
 
