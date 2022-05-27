@@ -16,7 +16,7 @@ router.route("/veterinarios").get(veterinarioCtrl.listarVeterinarios)
 router.route("/productos").get(productoCtrl.listarProductos)
 router.route("/planes").get(planesCtrl.listarPlanes )
 router.route("/turnos").get(turnosCtrl.listarTurnos).post(turnosCtrl.crearTurnos);
-router.route("/turnos/:id").get(turnosCtrl.obtenerTurnos).put(turnosCtrl.editarTurnos).delete(turnosCtrl.borrarUsuarios);
+router.route("/turnos/:id").get(turnosCtrl.obtenerTurnos).put(turnosCtrl.editarTurnos).delete(turnosCtrl.borrarTurnos);
 router.route("/usuarios").get(usuariosCtrl.listarUsuarios).post(usuariosCtrl.crearUsuarios);
 router.route("/usuarios/:id").get(usuariosCtrl.obtenerUsuarios).put(usuariosCtrl.editarUsuarios).delete(usuariosCtrl.borrarUsuarios);
 
