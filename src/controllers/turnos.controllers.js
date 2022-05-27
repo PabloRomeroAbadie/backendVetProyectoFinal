@@ -79,7 +79,7 @@ turnosCtrl.editarTurnos = async (req, res) => {
         console.log(req.body)
         //agregar validaciones de campos
         await Turno.findByIdAndUpdate(req.params.id,req.body);
-        res.status(200).json({ mensaje: "El turno fue editado correctamente" });
+        res.status(200).json({ mensaje: "Turno editado correctamente" });
 
     } catch (error) {
         console.log(error)
