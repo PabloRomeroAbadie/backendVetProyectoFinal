@@ -89,17 +89,17 @@ usuariosCtrl.editarUsuarios = async (req, res) => {
     }
 }
 
-usuariosCtrl.borrarUsuarios = async (req, res) => {
-    try {
-        await Usuario.findByIdAndDelete(req.params.id);
-        res.status(200).json({ mensaje: "se elimino  el usuario correctamente" })
+  usuariosCtrl.borrarUsuarios = async (req, res) => {
+      try {
+          await Usuario.findByIdAndDelete(req.params.id);
+          res.status(200).json({ mensaje: "se elimino  el usuario correctamente" })
 
-    } catch (error) {
-        console.log(error)
-        res.status(404).json({
-            mensaje: "error al intentar borrar un usuario"
-        })
-    }
-}
+      } catch (error) {
+          console.log(error)
+          res.status(404).json({
+              mensaje: "error al intentar borrar un usuario"
+          })
+      }
+  }
 
 export default usuariosCtrl;
