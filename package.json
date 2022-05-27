@@ -22,7 +22,11 @@
     "babel-preset-env": "^1.7.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+<<<<<<< HEAD
     "mongoose": "^6.2.3",
+=======
+    "mongoose": "^6.2.9",
+>>>>>>> bafd7d495806af8c5dde26a8724d41a8df3426a4
     "morgan": "^1.10.0"
   }
 }
