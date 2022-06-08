@@ -27,8 +27,6 @@ const turnoSchema = new Schema({
     horario: {
         type: String,
         required: true,
-        unique: true 
-
     }
 });
 

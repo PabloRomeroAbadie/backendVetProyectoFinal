@@ -8,9 +8,9 @@ turnosCtrl.crearTurnos = async (req, res) => {
         console.log(req.body)
 
         //validar
-        //crear el turno en la base de datos
 
-        const turnoNuevo = new Turno({
+        //crear el turno en la base de datos
+        const newTurno = new Turno({
             nombreDueño: req.body.nombreDueño,
             nombreMascota: req.body.nombreMascota,
             raza: req.body.raza,
@@ -19,7 +19,7 @@ turnosCtrl.crearTurnos = async (req, res) => {
             horario: req.body.horario
         })
         // guardar el objeto nuevo en BD
-        await turnoNuevo.save();
+        await newTurno.save();
 
         // enviar respuesta 
 
