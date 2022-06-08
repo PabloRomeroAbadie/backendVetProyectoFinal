@@ -9,7 +9,13 @@ const router = Router();  // puedo ponerle el nombre que quiera ( router x ejemp
 
 // crear la ruta
 
-router.route("/turnos").get(turnosCtrl.listarTurnos).post(turnosCtrl.crearTurnos);
-router.route("/turnos/:id").get(turnosCtrl.obtenerTurnos).put(turnosCtrl.editarTurnos).delete(turnosCtrl.borrarUsuarios);
+router.route("/turnos")
+.get(turnosCtrl.listarTurnos)
+.post(turnosCtrl.crearTurnos);
+
+router.route("/turnos/:id")
+.get(turnosCtrl.obtenerTurnos)
+.put(turnosCtrl.editarTurnos)
+.delete(turnosCtrl.borrarTurnos);
 
 export default router; 

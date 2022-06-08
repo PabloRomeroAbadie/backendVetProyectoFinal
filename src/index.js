@@ -3,11 +3,15 @@ import morgan from "morgan";
 import cors from "cors";
 import path from "path";
 import router from "./routes/turnos.routes";
+import routerUsuario from "./routes/usuarios.routes";
 import "./database";
 
 
 //creo una instancia de express
 const app = express();
+
+const bcrypt = require('bcryptjs');
+
 
 
 //crear un puerto
@@ -31,5 +35,7 @@ app.use(express.static(path.join(__dirname,"../public")));
 //aqui van las rutas 
 
 app.use("/apivet", router )
+app.use("/apivet", routerUsuario );
+
 
 

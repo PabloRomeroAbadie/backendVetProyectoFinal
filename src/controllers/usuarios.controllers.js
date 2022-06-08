@@ -3,21 +3,26 @@ import Usuario from "../models/usuarios";
 const usuariosCtrl = {};
 
 
+const bcryptjs = require('bcryptjs');
+
+
 usuariosCtrl.crearUsuarios = async (req, res) => {
     try {
         console.log(req.body)
 
         //validar
+
+
         //crear el usuarios en la base de datos
 
         const usuarioNuevo = new Usuario({
             email: req.body.email,
             nombreDueño: req.body.nombreDueño,
             nombreMascota: req.body.nombreMascota,
-            contraseña: req.body.contraseña,
+            contraseña : await bcryptjs.hash(req.body.contraseña, 8),
             fecha: req.body.fecha,
-            celular: req.body.celular
-        })
+            celular: req.body.celular,
+        });
         // guardar el objeto nuevo en BD
         await usuarioNuevo.save();
 
