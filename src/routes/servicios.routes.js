@@ -19,6 +19,6 @@ router.route("/turnos").get(turnosCtrl.listarTurnos).post(turnosCtrl.crearTurnos
 router.route("/turnos/:id").get(turnosCtrl.obtenerTurnos).put(turnosCtrl.editarTurnos).delete(turnosCtrl.borrarTurnos);
 router.route("/usuarios").get(usuariosCtrl.listarUsuarios).post(usuariosCtrl.crearUsuarios);
 router.route("/usuarios/:id").get(usuariosCtrl.obtenerUsuarios).put(usuariosCtrl.editarUsuarios).delete(usuariosCtrl.borrarUsuarios);
-
+router.route("/usuarios/login").post(usuariosCtrl.login);
 
 export default router;

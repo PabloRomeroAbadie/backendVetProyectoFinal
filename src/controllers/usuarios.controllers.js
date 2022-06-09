@@ -1,20 +1,61 @@
 import Usuario from "../models/usuarios";
 
 const usuariosCtrl = {};
+const crypto = require('crypto')
 
+usuariosCtrl.login = async (req, res) =>{
+    //validar q tenga mail y contra
+    if(!req.body.contraseña || !req.body.email)
+    {
+        res.status(404).json({
+            mensaje: "error al intentar agregar un Usuario"
+        })
+    }
+
+    Usuario.findOne({email: req.body.email}, (err, usuario) =>{
+        if(err){
+            console.log(2);
+            res.status(404).json({
+                mensaje: "error al intentar agregar un Usuario"
+            })
+        }
+        if(!usuario){
+            console.log(3);
+            res.status(404).json({
+                mensaje: "error al intentar agregar un Usuario"
+            })
+        }
+        if(usuario.contraseña != encryptPassword(req.body.contraseña)){
+            console.log(4);
+            res.status(404).json({
+                mensaje: "error al intentar agregar un Usuario"
+            })
+        }else{
+            res.sendStatus(200);
+        }
+        
+    })
+}
 
 usuariosCtrl.crearUsuarios = async (req, res) => {
     try {
         console.log(req.body)
-
+        const pass = encryptPassword(req.body.contraseña)
+        if(pass == ""){
+            res.status(404).json({
+                mensaje: "error al intentar agregar un Usuario"
+            })
+        }
+        console.log("pass: ",pass);
         //validar
+
         //crear el usuarios en la base de datos
 
         const usuarioNuevo = new Usuario({
             email: req.body.email,
             nombreDueño: req.body.nombreDueño,
             nombreMascota: req.body.nombreMascota,
-            contraseña: req.body.contraseña,
+            contraseña: pass,
             fecha: req.body.fecha,
             celular: req.body.celular
         })
@@ -101,5 +142,17 @@ usuariosCtrl.editarUsuarios = async (req, res) => {
           })
       }
   }
+
+  const encryptPassword = (password) =>{
+    if(!password) return '';
+    try {
+      return crypto.createHmac('sha1',"asdasdasdasd")
+      .update(password)
+      .digest('hex')
+    } catch (err) {
+      return "";
+    }
+  }
+  
 
 export default usuariosCtrl;
