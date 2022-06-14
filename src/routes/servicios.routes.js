@@ -6,6 +6,7 @@ import productoCtrl from "../controllers/producto.controllers";
 import planesCtrl from "../controllers/planes.controllers";
 import turnosCtrl from "../controllers/turnos.controllers";
 import usuariosCtrl from "../controllers/usuarios.controllers";
+import registroCtrl from "../controllers/registro.controllers" 
 
 //instancio al router
 const router = Router();
@@ -20,5 +21,8 @@ router.route("/turnos/:id").get(turnosCtrl.obtenerTurnos).put(turnosCtrl.editarT
 router.route("/usuarios").get(usuariosCtrl.listarUsuarios).post(usuariosCtrl.crearUsuarios);
 router.route("/usuarios/:id").get(usuariosCtrl.obtenerUsuarios).put(usuariosCtrl.editarUsuarios).delete(usuariosCtrl.borrarUsuarios);
 router.route("/usuarios/login").post(usuariosCtrl.login);
+router.route("/registro").post(registroCtrl.crearRegistro);
+router.route("/registro/login").post(registroCtrl.login);
+
 
 export default router;
