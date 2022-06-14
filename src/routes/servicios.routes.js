@@ -7,6 +7,7 @@ import planesCtrl from "../controllers/planes.controllers";
 import turnosCtrl from "../controllers/turnos.controllers";
 import usuariosCtrl from "../controllers/usuarios.controllers";
 import registroCtrl from "../controllers/registro.controllers" 
+import consultasCtrl from "../controllers/consulta.controllers";
 
 //instancio al router
 const router = Router();
@@ -23,6 +24,7 @@ router.route("/usuarios/:id").get(usuariosCtrl.obtenerUsuarios).put(usuariosCtrl
 router.route("/usuarios/login").post(usuariosCtrl.login);
 router.route("/registro").post(registroCtrl.crearRegistro);
 router.route("/registro/login").post(registroCtrl.login);
+router.route("/consulta").post(consultasCtrl.crearConsulta);
 
 
 export default router;

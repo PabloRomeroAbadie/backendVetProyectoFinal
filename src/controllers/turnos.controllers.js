@@ -6,7 +6,7 @@ const turnosCtrl = {};
 turnosCtrl.crearTurnos = async (req, res) => {
     try {
         console.log(req.body)
-
+        
         //validar
 
         //crear el turno en la base de datos
