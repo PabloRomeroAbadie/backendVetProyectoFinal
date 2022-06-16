@@ -24,7 +24,8 @@ router.route("/usuarios/:id").get(usuariosCtrl.obtenerUsuarios).put(usuariosCtrl
 router.route("/usuarios/login").post(usuariosCtrl.login);
 router.route("/registro").post(registroCtrl.crearRegistro);
 router.route("/registro/login").post(registroCtrl.login);
-router.route("/consulta").post(consultasCtrl.crearConsulta);
+router.route("/consulta").get(consultasCtrl.listarConsultas).post(consultasCtrl.crearConsulta);
+router.route("/consulta/:id").get(consultasCtrl.obtenerConsulta).delete(consultasCtrl.borrarConsulta);
 
 
 export default router;

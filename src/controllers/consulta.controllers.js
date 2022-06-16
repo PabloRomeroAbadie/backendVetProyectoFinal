@@ -29,4 +29,53 @@ consultasCtrl.crearConsulta = async (req,res) => {
     }
 }
 
+consultasCtrl.listarConsultas = async (req,res) => {
+    try {
+        const listaConsulta = await Consulta.find();
+        res.status(200).json(listaConsulta)
+
+    } catch (error){
+        console.log(error);
+        res.status(404).json({
+            mensaje: "error al intentar listar consulta"
+        })
+    }
+}
+
+consultasCtrl.obtenerConsulta = async (req, res) => {
+    try {
+
+        //obtener el id del request 
+        console.log(req.params.id)
+
+
+        //buscar el turno
+        const consultaBuscada = await Consulta.findById(req.params.id)
+
+        //enviar el turno por respuesta para el frontend
+        res.status(200).json(consultaBuscada);
+
+
+    } catch (error) {
+        console.log(error);
+        //enviar codigo de error 
+        res.status(404).json({
+            mensaje: "Error no se pudo obtener la consulta buscada"
+        })
+    }
+}
+
+consultasCtrl.borrarConsulta = async (req, res) => {
+    try {
+        await Consulta.findByIdAndDelete(req.params.id);
+        res.status(200).json({ mensaje: "se elimino  la consulta correctamente" })
+
+    } catch (error) {
+        console.log(error)
+        res.status(404).json({
+            mensaje: "error al intentar borrar la consulta"
+        })
+    }
+}
+
 export default consultasCtrl;

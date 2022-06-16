@@ -45,7 +45,7 @@ turnosCtrl.listarTurnos = async (req, res) => {
     } catch (error) {
         console.log(error)
         res.status(404).json({
-            mensaje: "error al intentar agregar un turno"
+            mensaje: "error al intentar listar turno"
         })
     }
 }
