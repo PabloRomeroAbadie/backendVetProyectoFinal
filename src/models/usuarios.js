@@ -13,21 +13,19 @@ const usuarioSchema = new Schema({
         type: String,
         required: true
     },
+    celular: {
+        type: String,
+        required: true
+    },
     nombreMascota: {
         type: String,
         required: true
     },
-    contraseña:{
+    raza: {
         type: String,
-        required: true
     },
-    fecha: {
+    especie: {
         type: String,
-        required: true
-    },
-    celular: {
-        type: String,
-        required: true
     }
 });
 
