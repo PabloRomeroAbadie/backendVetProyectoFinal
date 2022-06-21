@@ -1,3 +1,4 @@
+import { validateCelular, validateEmail, validateEspecie, validateNombreDueño, validateNombreMascota, validateRaza } from "../helpers/ValidateFields";
 import Usuario from "../models/usuarios";
 
 const usuariosCtrl = {};
@@ -6,6 +7,20 @@ const usuariosCtrl = {};
 usuariosCtrl.crearUsuarios = async (req, res) => {
     try {
         //validar
+        if (
+            !validateEmail(req.body.email) ||
+            !validateNombreDueño( req.body.nombreDueño) ||
+            !validateCelular(req.body.celular) ||
+            !validateNombreMascota(req.body.nombreMascota) ||
+            !validateEspecie(req.body.especie) ||
+            !validateRaza(req.body.raza) 
+        ){
+            res.status(404).json({
+                mensaje: "datos erroneos"
+            })
+            return;
+        }
+        
 
         //crear el usuarios en la base de datos
 

@@ -1,3 +1,4 @@
+import { validateFecha, validateHorario, validateNombreDueño, validateNombreMascota, validateRaza, validateVeterinario } from "../helpers/ValidateFields";
 import Turno from "../models/turnos";
 
 const turnosCtrl = {};
@@ -8,6 +9,20 @@ turnosCtrl.crearTurnos = async (req, res) => {
         console.log(req.body)
         
         //validar
+        if (
+            !validateNombreDueño(req.body.nombreDueño) ||
+            !validateNombreMascota(req.body.nombreMascota) ||
+            !validateRaza(req.body.raza) ||
+            !validateFecha(req.body.fecha) ||
+            !validateHorario(req.body.horario) ||
+            !validateVeterinario(req.body.veterinario)
+          ) 
+          {
+            res.status(404).json({
+                mensaje: "datos erroneos"
+            })
+            return;
+        }
 
         //crear el turno en la base de datos
         const newTurno = new Turno({

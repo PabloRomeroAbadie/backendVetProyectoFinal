@@ -1,3 +1,4 @@
+import { validateNombreDueño, validateEmail, validateContraseña } from "../helpers/ValidateFields";
 import Registro from "../models/registro"
 
 const registroCtrl = {};
@@ -40,6 +41,19 @@ registroCtrl.login = async (req, res) => {
 
 registroCtrl.crearRegistro = async (req, res) => {
     try{
+
+         //validar
+         if (
+            !validateNombreDueño(req.body.nombreApellido) ||
+            !validateEmail(req.body.email) ||
+            !validateContraseña(req.body.contraseña))
+            {
+                res.status(404).json({
+                    mensaje: "datos erroneos"
+                })
+                return;
+            }
+
         console.log(req.body)
         const pass = encryptPassword(req.body.contraseña)
         if(pass == ""){

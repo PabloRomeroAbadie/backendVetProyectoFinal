@@ -1,3 +1,4 @@
+import { validateConsulta, validateEmail, validateNombreDueño } from "../helpers/ValidateFields";
 import Consulta from "../models/consulta";
 
 const consultasCtrl = {};
@@ -5,6 +6,16 @@ const consultasCtrl = {};
 consultasCtrl.crearConsulta = async (req,res) => {
     try {   
         //validar
+        if (
+            !validateNombreDueño(req.body.nombreApellido) ||
+            !validateEmail(req.body.email) ||
+            !validateConsulta(req.body.consulta))
+            {
+                res.status(404).json({
+                    mensaje: "datos erroneos"
+                })
+                return;
+            }
 
         //guardar consulta en la base de datos
         const newConsulta = new Consulta ({
