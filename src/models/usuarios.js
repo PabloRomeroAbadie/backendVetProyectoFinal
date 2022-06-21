@@ -21,10 +21,10 @@ const usuarioSchema = new Schema({
         type: String,
         required: true
     },
-    raza: {
+    especie: {
         type: String,
     },
-    especie: {
+    raza: {
         type: String,
     }
 });

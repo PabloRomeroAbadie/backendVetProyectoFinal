@@ -29,8 +29,8 @@ usuariosCtrl.crearUsuarios = async (req, res) => {
             nombreDueño: req.body.nombreDueño,
             celular: req.body.celular,
             nombreMascota: req.body.nombreMascota,
-            raza: req.body.raza,
-            especie: req.body.especie
+            especie: req.body.especie,
+            raza: req.body.raza
         })
         // guardar el objeto nuevo en BD
         await usuarioNuevo.save();
