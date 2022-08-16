@@ -1,4 +1,3 @@
-// Reg expressions
 const regExpNombreDueño = /^[A-Za-z\s?]+$/;
 const regExpNombreMascota = /^[A-Za-z\s?]+$/;
 const regExpVeterinario = /^[A-Za-z\s?]+$/;
@@ -11,20 +10,13 @@ const regExpCelular = /[0-9]+$/;
 const regExpConsulta =/^[A-Za-z\s?]+$/;
 const regExpEspecie = /^[A-Za-z\s?]+$/;
 
-
-
-// Functions to validate
 export const validateNombreDueño = (field) => {
-
   if (
     regExpNombreDueño.test(field)  && field.trim() !== "" ) {
       
     return true;
-    
   } else {
-
     return false;
-    
   }
 };
 

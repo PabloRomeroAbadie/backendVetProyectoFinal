@@ -1,4 +1,3 @@
-//modelamos el dato a guardar en la base de datos
 import mongoose, {Schema} from "mongoose";
 
 const servicioSchema = new Schema({

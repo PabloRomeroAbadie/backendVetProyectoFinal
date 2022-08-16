@@ -1,5 +1,3 @@
-// modelamos el dato a guardar en la BD
-
 import mongoose, { Schema } from "mongoose";
 
 

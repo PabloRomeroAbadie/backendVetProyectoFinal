@@ -1,4 +1,3 @@
-// la mision de este archivo es mantener las rutas o peticiones
 import {Router} from "express";
 import servicioCtrl from "../controllers/servicio.controllers";
 import veterinarioCtrl from "../controllers/veterinario.controllers";
@@ -9,10 +8,8 @@ import usuariosCtrl from "../controllers/usuarios.controllers";
 import registroCtrl from "../controllers/registro.controllers" 
 import consultasCtrl from "../controllers/consulta.controllers";
 
-//instancio al router
 const router = Router();
 
-//crear la ruta
 router.route("/servicios").get(servicioCtrl.listarServicios)
 router.route("/veterinarios").get(veterinarioCtrl.listarVeterinarios)
 router.route("/productos").get(productoCtrl.listarProductos)
@@ -25,6 +22,5 @@ router.route("/registro").post(registroCtrl.crearRegistro);
 router.route("/registro/login").post(registroCtrl.login);
 router.route("/consulta").get(consultasCtrl.listarConsultas).post(consultasCtrl.crearConsulta);
 router.route("/consulta/:id").get(consultasCtrl.obtenerConsulta).delete(consultasCtrl.borrarConsulta);
-
 
 export default router;
